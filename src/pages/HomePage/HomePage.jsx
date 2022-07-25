@@ -3,9 +3,6 @@ import api from '../../services/punkapi';
 import Container from '../../components/Container';
 import BeerList from '../../components/BeerList';
 import Pagination from '../../components/Pagination';
-import styled from 'styled-components';
-
-import { accentBgCl } from '../../styles/styleVars';
 
 export default function HomePage() {
   const [beers, setBeers] = useState([]);
@@ -33,22 +30,16 @@ export default function HomePage() {
   };
 
   return (
-    <ContainerWrap>
-      <Container>
-        {beers && (
-          <>
-            <BeerList beers={beers} />
-            <Pagination prev={onPrevBtnClick} next={onNextBtnClick} />
-          </>
-        )}
-      </Container>
-    </ContainerWrap>
+    <Container>
+      {beers && (
+        <>
+          <BeerList beers={beers} />
+          <Pagination prev={onPrevBtnClick} next={onNextBtnClick} />
+        </>
+      )}
+    </Container>
   );
 }
-
-const ContainerWrap = styled.div`
-  background-color: ${accentBgCl};
-`;
 
 // const DecorativePicture = styled.div`
 //   background-image: url('../../images/mainImage.jpg');

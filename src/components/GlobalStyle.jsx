@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import 'normalize.css';
+import { accentBgCl } from '../styles/styleVars';
 
 export const GlobalStyle = createGlobalStyle`
   * {
@@ -12,6 +13,7 @@ export const GlobalStyle = createGlobalStyle`
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+     background-color: ${accentBgCl};
   }
   code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
