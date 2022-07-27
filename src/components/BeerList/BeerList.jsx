@@ -1,11 +1,24 @@
+import { Link, useLocation } from 'react-router-dom';
 import BeerItem from '../BeerItem';
 import styled from 'styled-components';
+import { accentTextCl } from '../../styles/styleVars';
 
 export default function BeerList({ beers }) {
+  const location = useLocation();
+
   return (
     <List>
       {beers.map(beer => (
-        <BeerItem beer={beer} key={beer.id} />
+        <Item key={beer.id} beer={beer}>
+          <Link
+            to={{
+              pathname: `/beers/${beer.id}`,
+              state: { from: location },
+            }}
+          >
+            <BeerItem beer={beer} key={beer.id} />
+          </Link>
+        </Item>
       ))}
     </List>
   );
@@ -20,4 +33,10 @@ const List = styled.ul`
   list-style: none;
   margin-left: auto;
   margin-right: auto;
+`;
+
+const Item = styled.li`
+  padding-bottom: 10px;
+  border-radius: 9px;
+  background-color: ${accentTextCl};
 `;
