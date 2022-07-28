@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useLocation, useParams, Link } from 'react-router-dom';
 import api from '../../services/punkapi';
+import Container from '../../components/Container';
 import BeerDetails from '../../components/BeerDetails';
 
 export default function BeerDetailPage() {
@@ -25,15 +26,17 @@ export default function BeerDetailPage() {
   return (
     <>
       {/* Нормально ли так хардкодить кнопку назад, до этого использовала хук useHistory */}
-      <Link
-        to={{
-          pathname: `/`,
-          state: { from: location },
-        }}
-      >
-        <button>Go back</button>
-      </Link>
-      {beer && <BeerDetails beer={beer} />}
+      <Container>
+        <Link
+          to={{
+            pathname: `/`,
+            state: { from: location },
+          }}
+        >
+          <button>Go back</button>
+        </Link>
+        {beer && <BeerDetails beer={beer} />}
+      </Container>
     </>
   );
 }
