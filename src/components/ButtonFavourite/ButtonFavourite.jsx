@@ -7,7 +7,7 @@ export default function ButtonFavourite({ beer }) {
   const onFavouriteBtnClick = () => {
     if (inFav) deleteFavourite(beer.id);
     else addFavourite(beer);
-    setInFav(prevState => !prevState);
+    setInFav(!inFav);
   };
 
   return (
