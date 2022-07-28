@@ -1,3 +1,4 @@
+import ButtonFavourite from '../ButtonFavourite';
 export default function BeerDetails({ beer }) {
   return (
     <>
@@ -12,6 +13,7 @@ export default function BeerDetails({ beer }) {
           <p>Description: {beer.description}</p>
           <p>food_pairing: {beer.food_pairing}</p>
         </div>
+        <ButtonFavourite beer={beer} />
       </div>
     </>
   );
