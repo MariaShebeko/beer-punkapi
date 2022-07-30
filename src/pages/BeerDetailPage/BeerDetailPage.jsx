@@ -10,7 +10,7 @@ export default function BeerDetailPage() {
 
   const beerId = Number(params.beerId);
 
-  console.log('location details', location);
+  // console.log('location details', location);
   // console.log('params details', params);
 
   const [beer, setBeer] = useState(null);
