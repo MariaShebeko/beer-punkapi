@@ -7,7 +7,6 @@ function getBeers(page) {
     .get(`${BASE_URL}beers?page=${page}&per_page=15`)
     .then(response => {
       if (response.status === 200 && response.data !== 0) {
-        // console.log('__response api all', response);
         return response.data;
       } else {
         return Promise.reject(
@@ -20,7 +19,6 @@ function getBeers(page) {
 function getBeerById(id) {
   return axios.get(`${BASE_URL}beers/${id}`).then(response => {
     if (response.status === 200) {
-      // console.log('__response api id', response);
       return response.data[0];
     } else {
       return Promise.reject(
@@ -30,9 +28,24 @@ function getBeerById(id) {
   });
 }
 
+function getBeerByQuery(query, page) {
+  return axios
+    .get(`${BASE_URL}beers?page=${page}&per_page=15&beer_name=${query}`)
+    .then(response => {
+      if (response.status === 200 && response.data !== 0) {
+        return response.data;
+      } else {
+        return Promise.reject(
+          new Error('There is nothing to show for you at the moment')
+        );
+      }
+    });
+}
+
 const api = {
   getBeers,
   getBeerById,
+  getBeerByQuery,
 };
 
 export default api;
