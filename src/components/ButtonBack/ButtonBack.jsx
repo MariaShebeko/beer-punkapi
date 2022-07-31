@@ -1,24 +1,21 @@
-import { useState } from 'react';
-import { deleteFavourite, addFavourite } from '../../services/favourites';
+import { IoMdArrowRoundBack } from 'react-icons/io';
 import { btnCl, accentTextCl, accentBgCl, textCl } from 'styles/styleVars';
 import styled from 'styled-components';
 
-export default function ButtonFavourite({ beer }) {
-  const [inFav, setInFav] = useState(false);
-
-  const onFavouriteBtnClick = () => {
-    if (inFav) deleteFavourite(beer.id);
-    else addFavourite(beer);
-    setInFav(prevState => !prevState);
-  };
-
+export default function ButtonBack({ onGoBack }) {
   return (
-    <Button type="button" onClick={onFavouriteBtnClick}>
-      {inFav ? 'Delete from favourites' : 'Add to favourites'}
-    </Button>
+    <ButtonWrapper>
+      <Button type="button" onClick={onGoBack}>
+        <Icon />
+        back
+      </Button>
+    </ButtonWrapper>
   );
 }
 
+const ButtonWrapper = styled.div`
+  padding: 20px;
+`;
 const Button = styled.button`
   display: flex;
   align-items: center;
@@ -38,4 +35,7 @@ const Button = styled.button`
     background-color: ${textCl};
     color: ${accentBgCl};
   }
+`;
+const Icon = styled(IoMdArrowRoundBack)`
+  margin-right: 10px;
 `;

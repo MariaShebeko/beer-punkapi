@@ -3,6 +3,7 @@ import { useLocation, useParams, Link, useNavigate } from 'react-router-dom';
 import api from '../../services/punkapi';
 import Container from '../../components/Container';
 import BeerDetails from '../../components/BeerDetails';
+import ButtonBack from 'components/ButtonBack';
 
 export default function BeerDetailPage() {
   const location = useLocation();
@@ -36,9 +37,7 @@ export default function BeerDetailPage() {
   return (
     <>
       <Container>
-        <button type="button" onClick={onGoBack}>
-          Go back
-        </button>
+        <ButtonBack onGoBack={onGoBack} />
         {beer && <BeerDetails beer={beer} />}
       </Container>
     </>

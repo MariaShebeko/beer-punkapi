@@ -25,8 +25,6 @@ const Button = styled.button`
   border-radius: 5px;
   background-color: ${btnCl};
   cursor: pointer;
-  border: none;
-  outline: none;
   color: ${accentTextCl};
   text-transform: uppercase;
   transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1),
