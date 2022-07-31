@@ -1,6 +1,5 @@
 import { GlobalStyle } from './GlobalStyle';
 import { Routes, Route } from 'react-router-dom';
-
 import Navigation from './Navigation';
 import {
   HomePage,
@@ -9,6 +8,8 @@ import {
   NotFoundPage,
   FavouriteBeersPage,
 } from '../pages';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
 
         <Route element={<NotFoundPage />}></Route>
       </Routes>
+      <ToastContainer />
     </>
   );
 }

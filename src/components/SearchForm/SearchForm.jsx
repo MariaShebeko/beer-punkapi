@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { BiSearchAlt } from 'react-icons/bi';
 import { accentBgCl, textCl } from '../../styles/styleVars';
+import { warning } from '../../services/notification';
 import styled from 'styled-components';
 
 export default function SearchForm({ onSubmit }) {
@@ -14,7 +15,7 @@ export default function SearchForm({ onSubmit }) {
     event.preventDefault();
 
     if (beerName.trim() === '') {
-      // toastify('Press the name of the movie');
+      warning('Press the name of the beer');
       return;
     }
     onSubmit(beerName);
