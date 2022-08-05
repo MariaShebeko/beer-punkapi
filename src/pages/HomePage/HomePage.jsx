@@ -1,18 +1,31 @@
 import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import {
+  beersOperations,
+  beersActions,
+  beersSelectors,
+} from '../../redux/beers';
 import api from '../../services/punkapi';
 import Container from '../../components/Container';
 import BeerList from '../../components/BeerList';
+import { Loader } from '../../components/Loader';
 import Pagination from '../../components/Pagination';
 
 export default function HomePage() {
-  const [beers, setBeers] = useState([]);
+  // const [beers, setBeers] = useState([]);
   const [page, setPage] = useState(1);
 
-  useEffect(() => {
-    api.getBeers(page).then(setBeers);
-  }, [page]);
+  // useEffect(() => {
+  //   api.getBeers(page).then(setBeers);
+  // }, [page]);
+  const beers = useSelector(beersSelectors.getItems);
+  const loader = useSelector(beersSelectors.getLoader);
+  const dispatch = useDispatch();
 
-  // Уточнить как вытянуть totalPages чтобы дисэйблить кнопку пагинации
+  useEffect(() => {
+    dispatch(beersOperations.fetchBeers(page));
+  }, [dispatch, page]);
+  // Уточнить как вытянуть totalPages чтобы дисэйблить кнопку пагинации next
 
   const onNextBtnClick = () => {
     setPage(state => state + 1);
@@ -31,16 +44,19 @@ export default function HomePage() {
 
   return (
     <Container>
+      {loader && <Loader />}
       {beers && (
         <>
           <BeerList beers={beers} />
-          <Pagination prev={onPrevBtnClick} next={onNextBtnClick} />
+          {beers.length > 1 && (
+            <Pagination
+              prev={onPrevBtnClick}
+              next={onNextBtnClick}
+              page={page}
+            />
+          )}
         </>
       )}
     </Container>
   );
 }
-
-// const DecorativePicture = styled.div`
-//   background-image: url('../../images/mainImage.jpg');
-// `;
