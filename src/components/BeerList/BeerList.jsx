@@ -40,23 +40,21 @@ const Item = styled.li`
   margin-right: auto;
   margin-bottom: 20px;
   margin-left: auto;
-  padding-bottom: 10px;
+`;
+const ItemLink = styled(Link)`
+  display: block;
+  text-decoration: none;
+  color: white;
 
   transform: scale(1);
   transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1),
     transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
-  text-decoration: none;
 
-  color: #fff;
   border-radius: 5px;
 
   &:hover {
     cursor: pointer;
     transform: scale(1.01);
-    box-shadow: 8px -6px 16px -2px #8c8c8c;
+    box-shadow: 2px 1px 18px -4px #fff;
   }
-`;
-const ItemLink = styled(Link)`
-  text-decoration: none;
-  color: white;
 `;

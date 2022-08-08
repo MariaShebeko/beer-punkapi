@@ -40,7 +40,6 @@ const Wrapper = styled.div`
     justify-content: center;
   }
 `;
-
 const ImageWrapper = styled.div`
   margin-right: 20px;
 `;

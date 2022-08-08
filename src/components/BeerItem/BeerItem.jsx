@@ -5,20 +5,16 @@ export default function BeerItem({ beer }) {
     <ItemWrapper>
       <Image src={beer.image_url} alt={beer.name} />
       <h2>{beer.name}</h2>
-      <p>{beer.first_brewed}</p>
     </ItemWrapper>
   );
 }
 
-const ItemWrapper = styled.div`
-  // position: relative;
-  height: 200px;
-`;
+const ItemWrapper = styled.div``;
 const Image = styled.img`
   display: block;
-  object-fit: cover;
+  object-fit: contain;
   width: 60px;
-  height: 100%;
+  height: 150px;
 
   margin-bottom: 10px;
 `;
