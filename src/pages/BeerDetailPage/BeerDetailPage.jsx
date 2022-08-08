@@ -10,11 +10,11 @@ export default function BeerDetailPage() {
   const params = useParams();
   let navigate = useNavigate();
   const locationRef = useRef(location);
-  console.log('locationRef', locationRef); // state = null?????
-  const beerId = Number(params.beerId);
 
   console.log('location details', location);
-  // console.log('params details', params);
+  console.log('locationRef', locationRef); // state = null?????
+
+  const beerId = Number(params.beerId);
 
   const [beer, setBeer] = useState(null);
 

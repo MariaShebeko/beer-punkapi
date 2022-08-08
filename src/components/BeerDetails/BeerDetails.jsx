@@ -2,7 +2,6 @@ import ButtonFavourite from '../ButtonFavourite';
 import styled from 'styled-components';
 
 export default function BeerDetails({ beer }) {
-  // console.log(beer);
   return (
     <>
       <Wrapper>

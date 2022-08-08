@@ -6,7 +6,6 @@ export const fetchBeers = createAsyncThunk(
   async (page, { rejectWithValue }) => {
     try {
       const data = await api.getBeers(page);
-      console.log('data from redux', data);
       return data;
     } catch (error) {
       return rejectWithValue(error);
@@ -19,7 +18,6 @@ export const fetchBeersById = createAsyncThunk(
   async (id, { rejectWithValue }) => {
     try {
       const data = await api.getBeerById(id);
-      console.log('dataById from redux', data);
       return data;
     } catch (error) {
       return rejectWithValue(error);

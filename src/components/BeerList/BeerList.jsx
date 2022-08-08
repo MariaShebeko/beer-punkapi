@@ -1,6 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
 import BeerItem from '../BeerItem';
-import { textCl } from '../../styles/styleVars';
 import styled from 'styled-components';
 
 export default function BeerList({ beers }) {

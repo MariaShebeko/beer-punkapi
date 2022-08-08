@@ -17,7 +17,7 @@ const initialState = {
 };
 
 const itemsReducer = createReducer(initialState.beers.items, {
-  [fetchBeers.fulfilled]: (state, { payload }) => payload,
+  [fetchBeers.fulfilled]: (_, { payload }) => payload,
   [fetchBeersById.fulfilled]: (state, { payload }) =>
     state.map(item => item.id === payload.id),
   [fetchBeersByQuery.fulfilled]: (_, { payload }) => payload,

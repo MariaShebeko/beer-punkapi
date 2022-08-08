@@ -1,10 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import {
-  beersOperations,
-  beersActions,
-  beersSelectors,
-} from '../../redux/beers';
+import { beersOperations, beersSelectors } from '../../redux/beers';
 import api from '../../services/punkapi';
 import Container from '../../components/Container';
 import BeerList from '../../components/BeerList';
@@ -12,12 +8,8 @@ import { Loader } from '../../components/Loader';
 import Pagination from '../../components/Pagination';
 
 export default function HomePage() {
-  // const [beers, setBeers] = useState([]);
   const [page, setPage] = useState(1);
 
-  // useEffect(() => {
-  //   api.getBeers(page).then(setBeers);
-  // }, [page]);
   const beers = useSelector(beersSelectors.getItems);
   const loader = useSelector(beersSelectors.getLoader);
   const dispatch = useDispatch();

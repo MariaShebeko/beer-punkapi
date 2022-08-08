@@ -41,8 +41,8 @@ export default function BeersPage() {
       <Container>
         <SearchForm onSubmit={formSubmit} />
         {beers && <BeerList beers={beers} />}
-        {beers.length > 1 && (
-          <Pagination prev={onPrevBtnClick} next={onNextBtnClick} />
+        {beers.length > 14 && (
+          <Pagination prev={onPrevBtnClick} next={onNextBtnClick} page={page} />
         )}
       </Container>
     </>

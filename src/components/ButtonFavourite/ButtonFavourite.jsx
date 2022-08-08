@@ -6,9 +6,12 @@ import styled from 'styled-components';
 export default function ButtonFavourite({ beer }) {
   const [inFav, setInFav] = useState(false);
 
-  const onFavouriteBtnClick = () => {
-    if (inFav) deleteFavourite(beer.id);
-    else addFavourite(beer);
+  const onFavouriteBtnClick = e => {
+    if (inFav) {
+      deleteFavourite(beer.id);
+    } else {
+      addFavourite(beer);
+    }
     setInFav(prevState => !prevState);
   };
 
