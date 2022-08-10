@@ -19,5 +19,5 @@ export const deleteFavourite = id => {
 };
 
 export const inFavourites = id => {
-  return getFavourites().find(beer => beer.id === id);
+  return !!getFavourites().find(beer => beer.id === id);
 };

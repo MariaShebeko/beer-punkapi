@@ -1,5 +1,9 @@
-import { useState } from 'react';
-import { deleteFavourite, addFavourite } from '../../services/favourites';
+import { useState, useEffect } from 'react';
+import {
+  deleteFavourite,
+  addFavourite,
+  inFavourites,
+} from '../../services/favourites';
 import { btnCl, accentTextCl, accentBgCl, textCl } from 'styles/styleVars';
 import styled from 'styled-components';
 
@@ -14,6 +18,10 @@ export default function ButtonFavourite({ beer }) {
     }
     setInFav(prevState => !prevState);
   };
+
+  useEffect(() => {
+    setInFav(inFavourites(beer.id));
+  }, [beer.id]);
 
   return (
     <Button type="button" onClick={onFavouriteBtnClick}>
