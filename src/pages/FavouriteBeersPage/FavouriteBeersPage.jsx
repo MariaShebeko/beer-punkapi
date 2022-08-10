@@ -14,7 +14,11 @@ export default function FavouriteBeersPage() {
   return (
     <>
       <Container>
-        <BeerList beers={beers} />
+        {beers.length > 1 ? (
+          <BeerList beers={beers} />
+        ) : (
+          "You haven't choose your favourite beer yet."
+        )}
       </Container>
     </>
   );
